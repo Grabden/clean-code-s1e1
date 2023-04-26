@@ -127,6 +127,9 @@ var taskCompleted=function(){
 
     //Append the task list item to the #completed-tasks
     var listItem=this.parentNode;
+    listItem.classList.replace("todo__item","completed__item");
+    let label=listItem.querySelector("label");
+    label.classList.replace("todo__label","completed__label");
     completedTasksHolder.appendChild(listItem);
     bindTaskEvents(listItem, taskIncomplete);
 
@@ -139,6 +142,9 @@ var taskIncomplete=function(){
     //When the checkbox is unchecked
     //Append the task list item to the #incompleteTasks.
     var listItem=this.parentNode;
+    listItem.classList.replace("completed__item","todo__item");
+    let label=listItem.querySelector("label");
+    label.classList.replace("completed__label","todo__label");
     incompleteTaskHolder.appendChild(listItem);
     bindTaskEvents(listItem,taskCompleted);
 }
